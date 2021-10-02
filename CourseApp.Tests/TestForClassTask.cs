@@ -3,7 +3,7 @@ namespace CourseApp.Tests
     using CourseApp.Class;
     using Xunit;
 
-    public class TestForClassTask
+    public class TestForTask
     {
         [Theory]
         [InlineData("VSCode", ".exe", 1.56, "GB")]
