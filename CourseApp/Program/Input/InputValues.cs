@@ -46,7 +46,7 @@ namespace CourseApp
 
         public (int, bool) InputInt(int minValue, int maxValue, string item)
         {
-            int intInput = 0;
+            var intInput = 0;
             var isCorrect = false;
             var check = new CheckValues();
             if (int.TryParse(item, out intInput))
@@ -83,7 +83,7 @@ namespace CourseApp
 
         public (double, bool) InputDouble(double minValue, double maxValue, string item)
         {
-            double doubleInput = 0;
+            var doubleInput = 0d;
             var isCorrect = false;
             var check = new CheckValues();
             if (double.TryParse(item, out doubleInput))
