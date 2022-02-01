@@ -2,7 +2,7 @@ namespace CourseApp
 {
     using System;
 
-    public class MainFileClass
+    public class MainFile
     {
         public static void Main(string[] args)
         {
