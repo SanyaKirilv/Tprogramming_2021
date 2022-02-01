@@ -1,4 +1,4 @@
-namespace CourseApp.Program
+namespace CourseApp
 {
     using System.Collections.Generic;
     using static System.Math;

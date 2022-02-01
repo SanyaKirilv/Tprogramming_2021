@@ -1,11 +1,10 @@
 namespace CourseApp.Tests
 {
     using System.Collections.Generic;
-    using CourseApp.Program;
     using Xunit;
     using static System.Math;
 
-    public class UnitTests
+    public class UnitTestsTask
     {
         [Theory]
         [InlineData(3, 2, 0.11, 1.56)]

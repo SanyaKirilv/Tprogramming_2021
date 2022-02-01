@@ -1,4 +1,4 @@
-namespace CourseApp.Program.Input
+namespace CourseApp
 {
     using System;
 
@@ -72,15 +72,13 @@ namespace CourseApp.Program.Input
                 (number, isCorrect) = InputDouble(minValue, maxValue, item);
                 if (isCorrect)
                 {
-                    break;
+                    return number;
                 }
                 else
                 {
                     Console.WriteLine($"Please enter correct value!");
                 }
             }
-
-            return number;
         }
 
         public (double, bool) InputDouble(double minValue, double maxValue, string item)

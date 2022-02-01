@@ -1,12 +1,11 @@
-namespace CourseApp.Program
+namespace CourseApp
 {
     using System;
     using System.Collections.Generic;
-    using CourseApp.Program.Input;
 
-    public class UserInterface
+    public class TaskUserInterface
     {
-        public UserInterface()
+        public TaskUserInterface()
         {
             Console.WriteLine("Hello!");
         }
@@ -39,8 +38,6 @@ namespace CourseApp.Program
                         break;
                 }
             }
-
-            Environment.Exit(0);
         }
 
         private void DefaultCalculations(List<double> listValues)

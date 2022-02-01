@@ -1,4 +1,4 @@
-namespace CourseApp.Program.Input
+namespace CourseApp
 {
     using System;
 
