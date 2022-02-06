@@ -22,13 +22,13 @@ namespace CourseApp
                 if (!playerOne.IsDead && !playerTwo.IsDead)
                 {
                     playerTwo.ApplyDamage(playerOne.Damage);
-                    gameLog += $"    - ({playerOne.Class}) {playerOne.Name} наносит урон {playerOne.Damage}HP, {(playerTwo.IsDead ? $"({playerTwo.Class}) {playerTwo.Name} погибает" : $"у ({playerTwo.Class}) {playerTwo.Name} осталось {playerTwo.HP}HP")}\n\r";
+                    gameLog += $"    - ({playerOne.Class}) {playerOne.Name} наносит урон {playerOne.Damage}HP, {(playerTwo.IsDead ? $"({playerTwo.Class}) {playerTwo.Name} погибает" : $"у ({playerTwo.Class}) {playerTwo.Name} осталось {playerTwo.Health}HP")}\n\r";
                 }
 
                 if (!playerOne.IsDead && !playerTwo.IsDead)
                 {
                     playerOne.ApplyDamage(playerTwo.Damage);
-                    gameLog += $"    - ({playerTwo.Class}) {playerTwo.Name} наносит урон {playerTwo.Damage}HP,{(playerOne.IsDead ? $"({playerOne.Class}) {playerOne.Name} погибает" : $"у ({playerOne.Class}) {playerOne.Name} осталось {playerOne.HP}HP")}\n\r";
+                    gameLog += $"    - ({playerTwo.Class}) {playerTwo.Name} наносит урон {playerTwo.Damage}HP,{(playerOne.IsDead ? $"({playerOne.Class}) {playerOne.Name} погибает" : $"у ({playerOne.Class}) {playerOne.Name} осталось {playerOne.Health}HP")}\n\r";
                 }
             }
 

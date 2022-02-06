@@ -15,10 +15,10 @@ namespace CourseApp
 
         public string GameLog()
         {
-            var startList = new RandomListCreator();
+            var startList = new ListCreator().GetList(size);
             var gameList = new List<List<Player>>();
             var rounds = 0;
-            gameList.Add(Fight(1, startList.GetList(size)));
+            gameList.Add(Fight(1, startList));
             for (int i = 0; i < Math.Log(size, 2); i++)
             {
                 rounds += gameList[i].Count;

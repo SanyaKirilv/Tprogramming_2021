@@ -3,20 +3,20 @@ namespace CourseApp
     using System;
     using System.Collections.Generic;
 
-    public class RandomListCreator
+    public class ListCreator
     {
         public List<Player> GetList(int size)
         {
             var list = new List<Player>();
             for (int i = 0; i < size; i++)
             {
-                list.Add(GetRandomClass());
+                list.Add(GenerateStartList());
             }
 
             return list;
         }
 
-        public Player GetRandomClass()
+        public Player GenerateStartList()
         {
             Random random = new Random();
             List<Factory> factories = new List<Factory>();

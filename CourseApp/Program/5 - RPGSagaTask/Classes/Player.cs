@@ -8,26 +8,20 @@ namespace CourseApp
 
         public double Health { get; set; }
 
-        public double HP { get; set; }
-
         public double Damage { get; set; }
 
         public bool IsDead { get; set; }
 
         public void ApplyDamage(double damage)
         {
-            HP -= damage;
-            if (HP <= 0)
+            Health -= damage;
+            if (Health <= 0)
             {
                 IsDead = true;
             }
         }
 
-        public void Regenerate()
-        {
-            IsDead = false;
-            HP = Health;
-        }
+        public abstract void Regenerate();
 
         public string Draw()
         {
