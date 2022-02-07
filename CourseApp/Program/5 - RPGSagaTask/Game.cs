@@ -5,59 +5,73 @@ namespace CourseApp
 
     public class Game
     {
-        private int size = 0;
-        private string gameLog;
+        private int _size;
+        private int _round;
+        private int _battle;
 
         public Game(int size)
         {
-            this.size = size;
+            _size = size;
         }
 
-        public string GameLog()
+        public void StartGame()
         {
-            var startList = new ListCreator().GetList(size);
+            var logger = new Logger();
+            var startListGenerator = new GameList();
             var gameList = new List<List<Player>>();
-            var rounds = 0;
-            gameList.Add(Fight(1, startList));
-            for (int i = 0; i < Math.Log(size, 2); i++)
+            gameList.Add(startListGenerator.GetList(_size));
+            logger.WriteLogLine(" Стaртовая сетка:");
+            for (var number = 0; number < gameList[0].Count; number++)
             {
-                rounds += gameList[i].Count;
-                gameList.Add(Fight(2 + i, gameList[i]));
+                logger.WriteLogLine($" | {number + 1} - {gameList[0][number].Display()} : Здоровье {gameList[0][number].Health:f1}hp; Способности {gameList[0][number].Ability[0].AbilityName} и {gameList[0][number].Ability[1].AbilityName}");
             }
 
-            gameLog += $"Игра окончена!\n\rКолличество игроков : {size}\n\rКолличество битв : {Math.Log(size, 2)}\n\rКолличество раундов : {rounds}";
-            return gameLog;
+            logger.WriteLogLine(" #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Round(_size, gameList, logger);
+            logger.WriteLogLine(" Статистика игры:");
+            logger.WriteLogLine($" | Победитель: {gameList[gameList.Count - 1][0].Display()}");
+            logger.WriteLogLine($" | Всего участников: {_size}");
+            logger.WriteLogLine($" | Всего раундов: {_round}");
+            logger.WriteLogLine($" | Всего боев: {_battle}");
+            logger.WriteLogLine($" #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine(logger.ReadLog());
         }
 
-        public List<Player> Fight(int roundNumber, List<Player> list)
+        public void Round(int size, List<List<Player>> gameList, Logger logger)
+        {
+            var roundLogger = new Logger();
+            for (int round = 0; round < Math.Log(size, 2); round++)
+            {
+                roundLogger.CleanLog();
+                roundLogger.WriteLogLine($" Раунд №{round + 1}");
+                foreach (var player in gameList[round])
+                {
+                    player.Regenerate();
+                }
+
+                gameList.Add(Battle(gameList[round], roundLogger));
+                roundLogger.WriteLogLine($" #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                _round++;
+                logger.WriteLog(roundLogger.ReadLog());
+            }
+        }
+
+        public List<Player> Battle(List<Player> gameList, Logger roundLogger)
         {
             var newList = new List<Player>();
-            var fightLog = string.Empty;
-            var fightNumber = 1;
-            foreach (Player player in list)
+            var battleLogger = new Logger();
+            for (int battle = 1; battle < gameList.Count; battle += 2)
             {
-                player.Regenerate();
-            }
-
-            if (list.Count > 1)
-            {
-                gameLog += $"Раунд №{roundNumber}\n\r";
-            }
-
-            for (int i = 1; i < list.Count; i += 2)
-            {
-                var round = new Round(list[i - 1], list[i]);
-                newList.Add(round.StartRound(fightNumber));
-                gameLog += round.GetLog();
-                fightNumber++;
+                battleLogger.CleanLog();
+                battleLogger.WriteLogLine($" |-Битва №{newList.Count + 1}");
+                var fight = new Fight(battleLogger, gameList[battle - 1], gameList[battle]);
+                newList.Add(fight.GetWinner());
+                battleLogger.WriteLogLine($" | #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                _battle++;
+                roundLogger.WriteLog(battleLogger.ReadLog());
             }
 
             return newList;
-        }
-
-        public void Draw()
-        {
-            Console.WriteLine(GameLog());
         }
     }
 }

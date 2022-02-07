@@ -1,24 +1,16 @@
 namespace CourseApp
 {
+    using System.Collections.Generic;
+
     public class Wizard : Player
     {
-        private double startHealth;
-
-        public Wizard(string name, double health, double damage)
+        public Wizard(string name, double health, List<Ability> ability)
         {
-            Class = "Wizard";
+            ClassName = "Wizard";
             Name = name;
-            startHealth = health;
             Health = health;
-            Damage = damage;
-        }
-
-        public override void Regenerate()
-        {
-            if (IsDead)
-            {
-                Health = startHealth;
-            }
+            StartHealth = health;
+            Ability = ability;
         }
     }
 }

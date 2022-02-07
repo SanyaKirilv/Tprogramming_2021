@@ -1,24 +1,16 @@
 namespace CourseApp
 {
+    using System.Collections.Generic;
+
     public class Knight : Player
     {
-        private double startHealth;
-
-        public Knight(string name, double health, double damage)
+        public Knight(string name, double health, List<Ability> ability)
         {
-            Class = "Knight";
+            ClassName = "Knight";
             Name = name;
-            startHealth = health;
             Health = health;
-            Damage = damage;
-        }
-
-        public override void Regenerate()
-        {
-            if (IsDead)
-            {
-                Health = startHealth;
-            }
+            StartHealth = health;
+            Ability = ability;
         }
     }
 }

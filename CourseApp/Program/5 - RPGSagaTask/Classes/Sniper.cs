@@ -2,11 +2,11 @@ namespace CourseApp
 {
     using System.Collections.Generic;
 
-    public class Ogre : Player
+    public class Sniper : Player
     {
-        public Ogre(string name, double health, List<Ability> ability)
+        public Sniper(string name, double health, List<Ability> ability)
         {
-            ClassName = "Ogre";
+            ClassName = "Sniper";
             Name = name;
             Health = health;
             StartHealth = health;
