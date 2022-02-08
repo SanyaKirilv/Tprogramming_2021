@@ -6,8 +6,7 @@ namespace CourseApp
     {
         public static void Main(string[] args)
         {
-            var game = new Game(16);
-            game.StartGame();
+            GameManager.RunGame(4);
             Console.ReadLine();
         }
     }
