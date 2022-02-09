@@ -21,6 +21,7 @@ namespace CourseApp
         public override void Regenerate()
         {
             CountOfUse = _countOfUse;
+            InUse = false;
         }
     }
 }

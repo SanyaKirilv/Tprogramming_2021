@@ -15,9 +15,9 @@ namespace CourseApp
             _p2 = p2;
         }
 
-        public (Player, Player) RunFight()
+        public (Player, Player) RunFight(int fight)
         {
-            Logger.WriteLogLine($" | # Fight: {_p1.Draw()} vs {_p2.Draw()}");
+            Logger.WriteLogLine($" | # Fight №{fight}: {_p1.Draw()} vs {_p2.Draw()}");
             while (!_p1.IsDead && !_p2.IsDead)
             {
                 GetDamage(_p1, _p2);

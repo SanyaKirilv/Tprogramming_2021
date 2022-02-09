@@ -1,7 +1,5 @@
 namespace CourseApp
 {
-    using System;
-
     public static class Skill
     {
         public static double UseSkill(Player enemy, Player target, Ability ability)

@@ -15,7 +15,6 @@ namespace CourseApp
             Damage = _damage;
             DamagePerStep = _damagePerStep;
             DamageMultiplier = _damageMultiplier;
-            IsAbleToUse = true;
             Stan = _stan;
             Regenerate();
         }
@@ -25,6 +24,8 @@ namespace CourseApp
             BaseDuration = _duration;
             Duration = _duration;
             CountOfUse = _countOfUse;
+            InUse = false;
+            IsAbleToUse = true;
         }
     }
 }

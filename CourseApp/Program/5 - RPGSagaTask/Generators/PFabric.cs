@@ -7,7 +7,7 @@ namespace CourseApp
     {
         private List<string> _name = new List<string>() { "Артемий", "Ева", "Кира", "Платон", "Максим", "Владимир", "Алиса", "Василий", "София", "Ника", "Марьям", "Тимофей", "Ангелина", "Мирон", "Антон", "Ярослав", "Иван", "Аделина", "Валерия", "Диана", "Дмитрий", "Амина", "Алексей", "Кирилл", "Александр", "Даниил", "Агата", "Виктория", "Михаил", "Злата", "Илья", "Дарья", "Ксения", "Александра", "Элина", "Артём", "Юрий", "Никита", "Павел", "Эмилия", "Мария", "Лев", "Андрей", "Маргарита", "Степан", "Григорий", "Василиса", "Фёдор", "Вероника", "Егор", "Елизавета", "Евгений", "Арина", "Марат", "Тимур", "Сафия", "Денис", "Ольга", "Дамир", "Софья", "Богдан", "Семён", "Зоя", "Нина", "Лилия", "Милана", "Николай", "Яна", "Екатерина", "Леонид", "Ирина", "Людмила", "Данияр", "Давид", "Анастасия", "Марк", "Вячеслав", "Константин", "Филипп", "Агния", "Эрик", "Надежда", "Любовь", "Анна", "Игорь", "Полина", "Антонина", "Стефания", "Назар", "Алина", "Медина", "Варвара", "Вера", "Мелания", "Сергей", "Ульяна", "Валентина", "Георгий", "Матвей", "Эмиль" };
 
-        private List<string> _allCharacters = new List<string>() { "Zeus", "Lina", "Axe", "Pudge" };
+        private List<string> _allCharacters = new List<string>() { "Zeus", "Lina", "Axe", "Pudge", "Sniper", "Bloodseeker" };
 
         public override Player FabricMethod()
         {
@@ -34,6 +34,14 @@ namespace CourseApp
                 case "Pudge":
                     _allCharacters.Remove("Pudge");
                     player = new Pudge(Nickname(), new Damage(Random.Shared.Next(168, 174)), new Rot(), new Dismember());
+                    break;
+                case "Sniper":
+                    _allCharacters.Remove("Sniper");
+                    player = new Sniper(Nickname(), new Damage(Random.Shared.Next(146, 152)), new HeadShot(), new TakeAim());
+                    break;
+                case "Bloodseeker":
+                    _allCharacters.Remove("Bloodseeker");
+                    player = new Bloodseeker(Nickname(), new Damage(Random.Shared.Next(160, 166)), new BloodRite(), new Rupture());
                     break;
             }
 

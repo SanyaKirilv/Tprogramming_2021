@@ -4,30 +4,23 @@ namespace CourseApp
 
     public class Round
     {
-        public void RunRound(List<Player> list)
+        public List<Player> GetWinnerList(List<Player> list)
         {
-            while (list.Count != 1)
+            var fightNumber = 0;
+            var winnerList = new List<Player>();
+            foreach (var player in list)
             {
-                foreach (var player in list)
-                {
-                    player.Regenerate();
-                }
-
-                for (int i = 1; i < list.Count; i += 2)
-                {
-                    Logger.WriteLogLine($" # Round");
-                    list.Remove(GetLouser(list[i - 1], list[i]));
-                    Logger.WriteLogLine($" #~~~~~~~~~~~~~~~~~~");
-                }
+                player.Regenerate();
             }
 
-            Logger.WriteLogLine($"Winner of Tournir: {list[0].Draw()}");
-        }
+            for (int i = 1;  i < list.Count;  i += 2)
+            {
+                var fight = new Fight(list[i - 1], list[i]);
+                winnerList.Add(fight.RunFight(fightNumber + 1).Item1);
+                fightNumber++;
+            }
 
-        public Player GetLouser(Player p1, Player p2)
-        {
-            var fight = new Fight(p1, p2);
-            return fight.RunFight().Item2;
+            return winnerList;
         }
     }
 }
