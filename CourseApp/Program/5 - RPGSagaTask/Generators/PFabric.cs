@@ -20,27 +20,21 @@ namespace CourseApp
             switch (_allCharacters[Random.Shared.Next(0, _allCharacters.Count)])
             {
                 case "Zeus":
-                    _allCharacters.Remove("Zeus");
                     player = new Zeus(Nickname(), new Damage(Random.Shared.Next(164, 172)), new LightningBold(), new TundergodsWrath());
                     break;
                 case "Lina":
-                    _allCharacters.Remove("Lina");
                     player = new Lina(Nickname(), new Damage(Random.Shared.Next(172, 180)), new DragonSlave(), new LagunaBlade());
                     break;
                 case "Axe":
-                    _allCharacters.Remove("Axe");
                     player = new Axe(Nickname(), new Damage(Random.Shared.Next(164, 168)), new CounterHelix(), new CullingBlade());
                     break;
                 case "Pudge":
-                    _allCharacters.Remove("Pudge");
                     player = new Pudge(Nickname(), new Damage(Random.Shared.Next(168, 174)), new Rot(), new Dismember());
                     break;
                 case "Sniper":
-                    _allCharacters.Remove("Sniper");
                     player = new Sniper(Nickname(), new Damage(Random.Shared.Next(146, 152)), new HeadShot(), new TakeAim());
                     break;
                 case "Bloodseeker":
-                    _allCharacters.Remove("Bloodseeker");
                     player = new Bloodseeker(Nickname(), new Damage(Random.Shared.Next(160, 166)), new BloodRite(), new Rupture());
                     break;
             }
@@ -51,7 +45,6 @@ namespace CourseApp
         private string Nickname()
         {
             var name = _name[Random.Shared.Next(0, _name.Count)];
-            _name.Remove(name);
             return name;
         }
     }
