@@ -9,43 +9,33 @@ namespace CourseApp
 
         private List<string> _allCharacters = new List<string>() { "Zeus", "Lina", "Axe", "Pudge", "Sniper", "Bloodseeker" };
 
-        public override Player FabricMethod()
-        {
-            return NewPlayer();
-        }
-
-        public Player NewPlayer()
+        public override Player GetRandomPlayer()
         {
             Player player = null;
+            var name = _name[Random.Shared.Next(0, _name.Count)];
             switch (_allCharacters[Random.Shared.Next(0, _allCharacters.Count)])
             {
                 case "Zeus":
-                    player = new Zeus(Nickname(), new Damage(Random.Shared.Next(164, 172)), new LightningBold(), new TundergodsWrath());
+                    player = new Zeus(name, new Damage(Random.Shared.Next(164, 172)), new LightningBold(), new TundergodsWrath());
                     break;
                 case "Lina":
-                    player = new Lina(Nickname(), new Damage(Random.Shared.Next(172, 180)), new DragonSlave(), new LagunaBlade());
+                    player = new Lina(name, new Damage(Random.Shared.Next(172, 180)), new DragonSlave(), new LagunaBlade());
                     break;
                 case "Axe":
-                    player = new Axe(Nickname(), new Damage(Random.Shared.Next(164, 168)), new CounterHelix(), new CullingBlade());
+                    player = new Axe(name, new Damage(Random.Shared.Next(164, 168)), new CounterHelix(), new CullingBlade());
                     break;
                 case "Pudge":
-                    player = new Pudge(Nickname(), new Damage(Random.Shared.Next(168, 174)), new Rot(), new Dismember());
+                    player = new Pudge(name, new Damage(Random.Shared.Next(168, 174)), new Rot(), new Dismember());
                     break;
                 case "Sniper":
-                    player = new Sniper(Nickname(), new Damage(Random.Shared.Next(146, 152)), new HeadShot(), new TakeAim());
+                    player = new Sniper(name, new Damage(Random.Shared.Next(146, 152)), new HeadShot(), new TakeAim());
                     break;
                 case "Bloodseeker":
-                    player = new Bloodseeker(Nickname(), new Damage(Random.Shared.Next(160, 166)), new BloodRite(), new Rupture());
+                    player = new Bloodseeker(name, new Damage(Random.Shared.Next(160, 166)), new BloodRite(), new Rupture());
                     break;
             }
 
             return player;
-        }
-
-        private string Nickname()
-        {
-            var name = _name[Random.Shared.Next(0, _name.Count)];
-            return name;
         }
     }
 }

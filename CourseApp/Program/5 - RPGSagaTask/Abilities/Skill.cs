@@ -17,13 +17,13 @@ namespace CourseApp
                     if (ability.Duration != ability.BaseDuration)
                     {
                         damage += ability.Damage;
-                        Logger.WriteLog($" | | {enemy.Draw()} use {ability.AbilityName} duration: {ability.Duration} step, ");
                     }
                     else
                     {
                         damage = (enemy.Damage.Damage + ability.DamagePerStep) * ability.DamageMultiplier;
-                        Logger.WriteLog($" | | {enemy.Draw()} use {ability.AbilityName} duration: {ability.Duration} step, ");
                     }
+
+                    Logger.WriteLog($" | | {enemy.Draw()} use {ability.AbilityName} duration: {ability.Duration} step, ");
 
                     ability.Duration--;
                     if (ability.Duration == 0)

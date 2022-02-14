@@ -17,7 +17,7 @@ namespace CourseApp
             var fabric = new PFabric();
             for (int size = 0; size < _gameSize; size++)
             {
-                list.Add(fabric.FabricMethod());
+                list.Add(fabric.GetRandomPlayer());
             }
 
             return list;

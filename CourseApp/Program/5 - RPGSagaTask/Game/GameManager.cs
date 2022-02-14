@@ -21,7 +21,7 @@ namespace CourseApp
 
             Logger.WriteLogLine($" Winner of this tournir: {list[listSize - 1][0].Draw()}");
             Logger.WriteLogLine($" Total rounds: {listSize}");
-            Logger.WriteLogLine($" Total fights: {Math.Pow(2, listSize) - 1}");
+            Logger.WriteLogLine($" Total fights: {Math.Pow(2, listSize) + 1}");
 
             Logger.ReagLog();
         }
