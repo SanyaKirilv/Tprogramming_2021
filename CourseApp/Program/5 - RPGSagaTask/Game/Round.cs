@@ -13,7 +13,7 @@ namespace CourseApp
                 player.Regenerate();
             }
 
-            for (int i = 1;  i < list.Count;  i += 2)
+            for (var i = 1;  i < list.Count;  i += 2)
             {
                 var fight = new Fight(list[i - 1], list[i]);
                 winnerList.Add(fight.RunFight(fightNumber + 1).Item1);

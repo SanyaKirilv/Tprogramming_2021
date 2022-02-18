@@ -2,10 +2,10 @@ namespace CourseApp
 {
     public class Damage : Ability
     {
-        private double _damagePerStep = 0;
-        private double _damageMultiplier = 1;
-        private bool _stan = false;
-        private int _countOfUse = 1000000;
+        private readonly double _damagePerStep = 0;
+        private readonly double _damageMultiplier = 1;
+        private readonly bool _stan = false;
+        private readonly int _countOfUse = 1000000;
 
         public Damage(double damage)
         {

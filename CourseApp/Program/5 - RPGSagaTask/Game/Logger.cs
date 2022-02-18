@@ -1,7 +1,6 @@
 namespace CourseApp
 {
     using System;
-    using System.Collections.Generic;
 
     public static class Logger
     {
@@ -9,7 +8,7 @@ namespace CourseApp
 
         public static void WriteLogLine(string message)
         {
-            log += message + "\n\r";
+            log += message + Environment.NewLine;
         }
 
         public static void WriteLog(string message)

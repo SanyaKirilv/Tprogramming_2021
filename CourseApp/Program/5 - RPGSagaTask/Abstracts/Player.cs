@@ -1,7 +1,5 @@
 namespace CourseApp
 {
-    using System;
-
     public abstract class Player
     {
         public string Character { get; set; }

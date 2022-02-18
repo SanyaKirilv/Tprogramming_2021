@@ -2,12 +2,12 @@ namespace CourseApp
 {
     public class Dismember : Ability
     {
-        private double _damage = 640;
-        private double _damagePerStep = 0;
-        private double _damageMultiplier = 1;
-        private bool _stan = false;
-        private int _duration = 0;
-        private int _countOfUse = 1;
+        private readonly double _damage = 640;
+        private readonly double _damagePerStep = 0;
+        private readonly double _damageMultiplier = 1;
+        private readonly bool _stan = false;
+        private readonly int _duration = 0;
+        private readonly int _countOfUse = 1;
 
         public Dismember()
         {
